@@ -1,0 +1,16 @@
+try {
+		baue verbindung auf
+	}
+	catch{ 
+		exceptions fangen
+	}
+	finally { 
+		verbindung zu machen
+	} 
+	
+	
+try:
+	
+except: 
+finally:
+	

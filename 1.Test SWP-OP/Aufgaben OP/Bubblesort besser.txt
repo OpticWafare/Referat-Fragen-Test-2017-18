@@ -1,0 +1,46 @@
+public void bubblesort2 (Einfach_Verkettete_Liste evl1, ListElement le)
+	{
+		int temp = 0;
+		ListElement le2 = le;
+		while(le2 != null)
+		{
+			System.out.print("Versuche " + le2.getValue() + " in ");
+			Einfach_Verkettete_ListeToString(evl1);
+			System.out.println(" einzufügen");
+			le = le2;
+			le2 = le2.getNext();
+			le.setNext(evl1.startElement);
+			evl1.startElement = le;
+			ListElement evl1element = evl1.startElement;
+			while(evl1element != null)
+			{
+				if(evl1element.getNext() == null)
+				{
+					System.out.println("Ende der Liste ist errreicht, Element wurde einsortiert");
+					break;
+				}
+				if(evl1element.getValue() > evl1element.getNext().getValue())
+				{
+					System.out.println("Vertausche " + evl1element.getValue() + " mit " + evl1element.getNext().getValue());
+					temp = evl1element.getValue();
+					evl1element.setValue(evl1element.getNext().getValue());
+					evl1element.getNext().setValue(temp);
+				}
+				evl1element = evl1element.getNext();
+			}
+		}
+	
+	}
+	
+	
+	in main:
+	
+	Einfach_Verkettete_Liste evl3 = new Einfach_Verkettete_Liste();
+		Einfach_Verkettete_Liste evl4 = new Einfach_Verkettete_Liste();
+		evl3.insertElements(10, evl3);
+		evl4.bubblesort2(evl4, new ListElement(7));
+		evl3.Einfach_Verkettete_ListeToString(evl3);
+		System.out.println();
+		evl4.bubblesort2(evl4, evl3.startElement);
+		System.out.println();
+		evl4.Einfach_Verkettete_ListeToString(evl4);
